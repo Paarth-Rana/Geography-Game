@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Geography Game</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="app">
+    <!-- Mode selection -->
+    <section id="mode-select" class="screen active">
+      <h1>Geography Game</h1>
+      <div class="mode-buttons">
+        <button type="button" class="mode-btn" data-mode="flag">Flag Guesser</button>
+        <button type="button" class="mode-btn" data-mode="population">Population Game</button>
+      </div>
+    </section>
+
+    <!-- Flag Guesser game -->
+    <section id="flag-game" class="screen">
+      <header class="game-header">
+        <span class="score">Score: <strong id="flag-score">0</strong></span>
+        <span class="lives">
+          <span class="heart" data-life="1">♥</span>
+          <span class="heart" data-life="2">♥</span>
+          <span class="heart" data-life="3">♥</span>
+        </span>
+      </header>
+      <p class="prompt">Which country is this flag from?</p>
+      <div class="flag-display" id="flag-display"></div>
+      <div class="options" id="flag-options"></div>
+      <button type="button" class="back-btn" id="flag-back">← Back</button>
+    </section>
+
+    <!-- Population game -->
+    <section id="population-game" class="screen">
+      <header class="game-header">
+        <span class="score">Score: <strong id="pop-score">0</strong></span>
+        <span class="lives">
+          <span class="heart" data-life="1">♥</span>
+          <span class="heart" data-life="2">♥</span>
+          <span class="heart" data-life="3">♥</span>
+        </span>
+      </header>
+      <p class="prompt" id="pop-prompt">Does <span id="pop-left-prompt-name"></span> have a higher or lower population than <span id="pop-right-prompt-name"></span>?</p>
+      <div class="population-cards" id="population-cards">
+        <div class="card-slot card-slot-left">
+          <div class="country-card left" id="pop-left">
+            <div class="card-flag" id="pop-left-flag"></div>
+            <span class="card-name" id="pop-left-name"></span>
+          </div>
+        </div>
+        <div class="vs-divider">vs</div>
+        <div class="card-slot card-slot-right">
+          <div class="country-card right" id="pop-right">
+            <div class="card-flag" id="pop-right-flag"></div>
+            <span class="card-name" id="pop-right-name"></span>
+          </div>
+        </div>
+      </div>
+      <div class="pop-buttons">
+        <button type="button" class="pop-btn higher" id="pop-higher">Higher</button>
+        <button type="button" class="pop-btn lower" id="pop-lower">Lower</button>
+      </div>
+      <button type="button" class="back-btn" id="pop-back">← Back</button>
+    </section>
+
+    <!-- Game over overlay -->
+    <div id="game-over" class="overlay hidden">
+      <div class="game-over-box">
+        <h2>Game Over</h2>
+        <p class="final-score">Final score: <strong id="final-score">0</strong></p>
+        <button type="button" class="play-again-btn" id="play-again">Play Again</button>
+      </div>
+    </div>
+
+    <!-- Loading -->
+    <div id="loading" class="overlay hidden">
+      <div class="loading-spinner"></div>
+      <p>Loading countries...</p>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
